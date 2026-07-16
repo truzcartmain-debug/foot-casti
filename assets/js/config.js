@@ -21,11 +21,11 @@ window.SITE_CONFIG = {
 
   // The match currently being broadcast (shown on the home page hero,
   // the schedule's top row, and the broadcast page).
-  //liveMatch: {
-    //home: "ESP",
-    //away: "ARG",
-   // competition: "Group A",
-    //venue: "Central Stadium"
+  liveMatch: {
+    home: "ESP",
+    away: "ARG",
+    competition: "Group A",
+    venue: "Central Stadium"
  // },
 
   // Upcoming fixtures for the schedule section.
