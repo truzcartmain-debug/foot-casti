@@ -76,8 +76,8 @@ window.SITE_CONFIG = {
   streamServers: [
     {
       label: "Server 1",
-      embedUrl: "https://www.youtube.com/embed/aqz-KE-bpKQ?autoplay=0",
-      embedCode: ""  // 👈 paste your Server 1 <iframe> embed code here when ready
+      embedUrl: "",
+      embedCode: "<iframe src="https:ritzembeds.pages.dev/play/fox-usa" width="100%" height="100%" frameborder="0" scrolling="no" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>"  // 👈 paste your Server 1 <iframe> embed code here when ready
     },
     {
       label: "Server 2",
