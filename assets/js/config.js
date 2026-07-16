@@ -37,7 +37,7 @@ window.SITE_CONFIG = {
       home: "ESP",
       away: "ARG",
       group: "Group B",
-      kickoff: "2026-07-20T00:30:00+05:30" // Monday, 20 July 2026, 12:30 AM IST
+      kickoff: "2026-07-16T00:30:00+05:30" // 12:30 AM IST
     },
     {
       home: "North City",
