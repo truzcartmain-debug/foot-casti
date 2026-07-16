@@ -14,19 +14,19 @@ window.SITE_CONFIG = {
 
   // Hero stat counters on the home page (they count up on load).
   stats: {
-    liveNow: 1,
-    matchesToday: 1,
+    liveNow: 0,
+    matchesToday: 0,
     teamsLeft: 4
   },
 
   // The match currently being broadcast (shown on the home page hero,
   // the schedule's top row, and the broadcast page).
-  liveMatch: {
-    home: "ENG",
-    away: "ARG",
-    competition: "Group A",
-    venue: "Central Stadium"
-  },
+  //liveMatch: {
+    //home: "ESP",
+    //away: "ARG",
+   // competition: "Group A",
+    //venue: "Central Stadium"
+ // },
 
   // Upcoming fixtures for the schedule section.
   // "kickoff" must be an ISO datetime WITH a timezone offset.
@@ -35,9 +35,9 @@ window.SITE_CONFIG = {
   schedule: [
     {
       home: "ESP",
-      away: "TBD",
+      away: "ARG",
       group: "Group B",
-      kickoff: "2026-07-16T00:30:00+05:30" // 12:30 AM IST
+      kickoff: "2026-07-20T00:30:00+05:30" // Monday, 20 July 2026, 12:30 AM IST
     },
     {
       home: "North City",
