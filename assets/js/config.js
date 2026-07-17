@@ -43,15 +43,15 @@ window.SITE_CONFIG = {
     },
 
      {
-      home: "North City",
-      away: "South Town",
-      group: "Group C",
+      home: "no match",
+      away: "no match",
+      group: "no match",
       kickoff: "2026-07-15T20:30:00+05:30" // 8:30 PM IST
     },
     {
-      home: "East Athletic",
-      away: "West Wanderers",
-      group: "Group A",
+      home: "no match",
+      away: "no match",
+      group: "no match",
       kickoff: "2026-07-16T17:00:00+05:30" // 5:00 PM IST
     }
   ],
