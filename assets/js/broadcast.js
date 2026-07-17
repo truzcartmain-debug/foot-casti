@@ -28,65 +28,17 @@
   var switcherEl = document.getElementById('server-switcher');
 
   function renderServer(server) {
-  if (!playerFrame) return;
-
-  // Show countdown before stream starts
-  if (cfg.streamStart) {
-
-    var startTime = new Date(cfg.streamStart).getTime();
-
-    if (Date.now() < startTime) {
-
-      playerFrame.innerHTML = `
-        <div class="countdown-box">
-          <h2>🔴 Stream Starts In</h2>
-          <div id="countdown-timer">Loading...</div>
-        </div>
-      `;
-
-      var timerEl = document.getElementById("countdown-timer");
-
-      function updateCountdown() {
-
-        var diff = startTime - Date.now();
-
-        if (diff <= 0) {
-          clearInterval(interval);
-          renderServer(server);
-          return;
-        }
-
-        var d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        var h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        var m = Math.floor((diff / (1000 * 60)) % 60);
-        var s = Math.floor((diff / 1000) % 60);
-
-        timerEl.innerHTML =
-          d + "d " +
-          h + "h " +
-          m + "m " +
-          s + "s";
-      }
-
-      updateCountdown();
-
-      var interval = setInterval(updateCountdown, 1000);
-
-      return;
+    if (!playerFrame) return;
+    if (server.embedCode && server.embedCode.trim()) {
+      playerFrame.innerHTML = server.embedCode;
+    } else {
+      playerFrame.innerHTML =
+        '<iframe id="stream-iframe" src="' + (server.embedUrl || '') + '" ' +
+        'title="Foot Casti Stream" ' +
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+        'allowfullscreen></iframe>';
     }
   }
-
-  // Stream starts
-  if (server.embedCode && server.embedCode.trim()) {
-    playerFrame.innerHTML = server.embedCode;
-  } else {
-    playerFrame.innerHTML =
-      '<iframe id="stream-iframe" src="' + (server.embedUrl || '') + '" ' +
-      'title="Foot Casti Stream" ' +
-      'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
-      'allowfullscreen></iframe>';
-  }
-}
 
   var servers = cfg.streamServers || [];
   if (switcherEl && servers.length) {
