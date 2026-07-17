@@ -21,7 +21,7 @@
 
 *{ margin:0; padding:0; box-sizing:border-box; }
 
-html{ scroll-behavior: smooth; }
+html{ scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
 
 body{
   background: var(--bg);
@@ -31,6 +31,8 @@ body{
   color: var(--text);
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
@@ -242,6 +244,8 @@ header{
   display:flex;
   align-items:center;
   justify-content:center;
+  overflow-x: auto;
+  min-width: 0;
 }
 .ad-label{
   font-size: 11px;
