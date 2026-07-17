@@ -41,20 +41,7 @@ window.SITE_CONFIG = {
       group: "Group B",
       kickoff: "2026-07-20T00:30:00+05:30" // Monday, 20 July 2026, 12:30 AM IST
     },
-    {
-      home: "North City",
-      away: "South Town",
-      group: "Group C",
-      kickoff: "2026-07-15T20:30:00+05:30" // 8:30 PM IST
-    },
-    {
-      home: "East Athletic",
-      away: "West Wanderers",
-      group: "Group A",
-      kickoff: "2026-07-16T17:00:00+05:30" // 5:00 PM IST
-    }
-  ],
-
+    
   // Your broadcast's server options. Viewers see buttons — "Server 1",
   // "Server 2", "Server 3" — and can switch between them if one is slow
   // or down. Add as many or as few as you like; the switcher on
