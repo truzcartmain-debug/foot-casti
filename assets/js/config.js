@@ -12,7 +12,7 @@ window.SITE_CONFIG = {
   // Shown in the header, browser tab, and footer.
   siteName: "Foot Casti",
 
-,
+
   // Hero stat counters on the home page (they count up on load).
   stats: {
     liveNow: 0,
