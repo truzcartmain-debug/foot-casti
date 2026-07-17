@@ -12,7 +12,7 @@ window.SITE_CONFIG = {
   // Shown in the header, browser tab, and footer.
   siteName: "Foot Casti",
 
-   streamMode: "countdown", // "countdown" or "live"
+   streamMode: "live", // "countdown" or "live"
 
 streamStart: "2026-07-20T00:30:00+05:30",
   // Hero stat counters on the home page (they count up on load).
