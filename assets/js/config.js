@@ -12,6 +12,7 @@ window.SITE_CONFIG = {
   // Shown in the header, browser tab, and footer.
   siteName: "Foot Casti",
 
+   streamStart: "2026-07-20T00:30:00+05:30",
   // Hero stat counters on the home page (they count up on load).
   stats: {
     liveNow: 0,
@@ -28,9 +29,6 @@ window.SITE_CONFIG = {
     venue: "Central Stadium"
   },
 
-   streamMode: "countdown", // "live" | "countdown"
-
-streamStart: "2026-07-20T00:30:00+05:30",
 
   // Upcoming fixtures for the schedule section.
   // "kickoff" must be an ISO datetime WITH a timezone offset.
