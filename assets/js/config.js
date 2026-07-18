@@ -86,7 +86,7 @@ window.SITE_CONFIG = {
     {
       label: "Server 2",
       embedUrl: "",
-      embedCode: "<iframe src=\"https://ritzembeds.pages.dev/embed/fox-usa#player=clappr&autoplay=1\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>"
+      embedCode: "<iframe src=https://www.hlsplayer.net/embed?type=m3u8&src=https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index.m3u8 />"
     },
     {
       label: "Server 3",
