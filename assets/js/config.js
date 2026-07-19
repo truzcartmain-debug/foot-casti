@@ -15,7 +15,7 @@ window.SITE_CONFIG = {
 
   // Hero stat counters on the home page (they count up on load).
   stats: {
-    liveNow: 0,
+    liveNow: 1,
     matchesToday: 0,
     teamsLeft: 4
   },
@@ -23,8 +23,8 @@ window.SITE_CONFIG = {
   // The match currently being broadcast (shown on the home page hero,
   // the schedule's top row, and the broadcast page).
   liveMatch: {
-    home: "FRA",
-    away: "ENG",
+    home: "ARG",
+    away: "ESP",
     competition: "Group A",
     venue: "Central Stadium"
   },
