@@ -204,7 +204,7 @@ window.SITE_CONFIG = {
       ],
 
       streamServers: [
-        { label: "Server 1", embedUrl: "", embedCode: "" },
+        { label: "Server 1", embedUrl: "", embedCode: "<iframe src=\"https://logic.icelanders.st/embed/dazn1-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>" },
         { label: "Server 2", embedUrl: "", embedCode: "" }
       ]
     },
