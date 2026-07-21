@@ -180,8 +180,8 @@ window.SITE_CONFIG = {
       ],
 
       streamServers: [
-        { label: "Server 1", embedUrl: "", embedCode: "<iframe src=\"https://xyzstreams.st/247.html?streamid=espn&proid=sling\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>" },
-        { label: "Server 2", embedUrl: "", embedCode: "https://player.xyzstreams.st/embed/fox-usa2#player=clappr&autoplay=1\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>" }
+        { label: "Server 1", embedUrl: "", embedCode: "<iframe src=\"https://logic.icelanders.st/embed/espn-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>" },
+        { label: "Server 2", embedUrl: "", embedCode: "<iframe src=\"https://logic.icelanders.st/embed/fox-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>" }
       ]
     },
 
