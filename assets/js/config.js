@@ -113,12 +113,12 @@ window.SITE_CONFIG = {
         {
           label: "Server 1",
           embedUrl: "",
-          embedCode: "<iframe src=\"https://player.xyzstreams.st/embed/fox-usa2#player=clappr&autoplay=1\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>"
+          embedCode: "<iframe src=\"https://xyzstreams.st/247.html?streamid=espn2&proid=sling\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>"
         },
         {
           label: "Server 2",
           embedUrl: "",
-          embedCode: "<iframe src=\"https://hgfutgtbjfbtfb.pages.dev/play/telemundo-xyz-waUvqaAACr#player=clappr&autoplay=1\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>"
+          embedCode: "<iframe src=\"https://logic.icelanders.st/embed/dazn1-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>"
         },
         {
           label: "Server 3",
@@ -181,7 +181,7 @@ window.SITE_CONFIG = {
 
       streamServers: [
         { label: "Server 1", embedUrl: "", embedCode: "<iframe src=\"https://xyzstreams.st/247.html?streamid=espn&proid=sling\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>" },
-        { label: "Server 2", embedUrl: "", embedCode: "<iframe src=\"https://xyzstreams.st/247.html?streamid=espn2&proid=sling\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>" }
+        { label: "Server 2", embedUrl: "", embedCode: "https://player.xyzstreams.st/embed/fox-usa2#player=clappr&autoplay=1\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>" }
       ]
     },
 
