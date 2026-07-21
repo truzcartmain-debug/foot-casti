@@ -113,12 +113,12 @@ window.SITE_CONFIG = {
         {
           label: "Server 1",
           embedUrl: "",
-          embedCode: "<iframe src=\"https://xyzstreams.st/247.html?streamid=espn2&proid=sling\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>"
+          embedCode: "<iframe src=\"https://logic.icelanders.st/embed/tntsports1-uk\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>"
         },
         {
           label: "Server 2",
           embedUrl: "",
-          embedCode: "<iframe src=\"https://logic.icelanders.st/embed/dazn1-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>"
+          embedCode: "<iframe src=\"https://logic.icelanders.st/embed/beinsports-usa\" width=\"100%\" height=\"100%\" frameborder=\"0\" scrolling=\"no\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" allowfullscreen></iframe>"
         },
         {
           label: "Server 3",
