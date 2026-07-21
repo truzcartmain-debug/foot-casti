@@ -60,21 +60,40 @@
   </p>
 
   <div class="hero-actions">
-    <a href="broadcast.html" class="btn btn-primary">▶ Watch Live</a>
-    <a href="#schedule" class="btn btn-ghost">View Schedule</a>
+    <a href="broadcast.html" class="btn btn-primary" id="hero-watch-btn">▶ Watch Live</a>
+    <a href="#live-events" class="btn btn-ghost">View Schedule</a>
+  </div>
+</section>
+
+<section class="live-search" id="live-search">
+  <div class="search-bar">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="live-search-input" placeholder="Search any sport, team, or match…" autocomplete="off">
+    <button type="button" class="search-clear" id="live-search-clear" hidden aria-label="Clear search">✕</button>
+  </div>
+</section>
+
+<section class="live-events" id="live-events">
+
+  <div class="live-events-head">
+    <h2>Live Events</h2>
+    <span id="live-events-count"></span>
   </div>
 
-  <div class="stats" id="hero-stats"></div>
+  <div class="live-events-grid" id="live-events-grid"></div>
+  <p class="empty-state" id="live-events-empty" hidden>No live events right now — the next matches are below.</p>
+
 </section>
 
 <section class="schedule" id="schedule">
 
   <div class="schedule-head">
     <h2>Schedule</h2>
-    <span>Matchday 3</span>
+    <span id="schedule-count"></span>
   </div>
 
   <div id="schedule-list"></div>
+  <p class="empty-state" id="schedule-empty" hidden>No matches match your search.</p>
 
 </section>
 
