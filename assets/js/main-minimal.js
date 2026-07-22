@@ -139,7 +139,6 @@
         '<div class="sport-card-icon">' + sport.icon + '</div>' +
         '<div class="sport-card-body">' +
           '<div class="sport-card-name">' + sport.label + '</div>' +
-          '<div class="sport-card-tagline">' + (sport.tagline || '') + '</div>' +
           statusHtml +
         '</div>' +
         '<div class="sport-card-cta">Watch <span>→</span></div>';
