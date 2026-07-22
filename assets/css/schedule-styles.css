@@ -102,17 +102,14 @@
   font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  animation: pulse-badge 1.5s ease-in-out infinite;
 }
 
 .live-event-tag .dot {
   width: 6px;
   height: 6px;
-}
-
-@keyframes pulse-badge {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.2); opacity: 0.7; }
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--green);
 }
 
 .live-event-sport {
@@ -394,7 +391,6 @@
 .status-badge.live {
   background: rgba(34, 224, 122, 0.2);
   color: var(--green);
-  animation: pulse 1.5s ease-in-out infinite;
 }
 
 .status-badge.upcoming {

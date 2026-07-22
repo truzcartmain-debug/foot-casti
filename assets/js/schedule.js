@@ -10,6 +10,14 @@
   let liveMatches = [];
   let updateInterval = null;
 
+  // Sport to broadcast page mapping
+  const sportPages = {
+    'Football': 'broadcast.html',
+    'UEFA': 'broadcast-uefa.html',
+    'Baseball': 'broadcast-baseball.html',
+    'Tennis': 'broadcast-tennis.html'
+  };
+
   // ---- Utility Functions ----
   function getStatus(match) {
     if (match.status === 'live') return '🔴 LIVE';
@@ -38,6 +46,10 @@
     return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
   }
 
+  function getBroadcastPage(sport) {
+    return sportPages[sport] || 'broadcast.html';
+  }
+
   // ---- Live Matches Grid ----
   function renderLiveEvents() {
     const liveGrid = document.getElementById('live-events-grid');
@@ -62,6 +74,7 @@
       card.className = 'live-event-card in-view';
       card.style.animationDelay = (index * 0.06) + 's';
       card.style.cursor = 'pointer';
+      card.onclick = () => window.location.href = getBroadcastPage(match.sport);
 
       const scoreText = match.status === 'live' 
         ? `${match.score.home} - ${match.score.away}`
@@ -112,6 +125,8 @@
     allMatches.forEach((match) => {
       const row = document.createElement('div');
       row.className = 'match-row ' + (match.status === 'live' ? 'is-live' : '') + (match.status === 'finished' ? 'is-finished' : '') + ' in-view';
+      row.onclick = () => window.location.href = getBroadcastPage(match.sport);
+      row.style.cursor = 'pointer';
 
       const statusText = getStatus(match);
 
@@ -165,6 +180,8 @@
     topEvents.forEach((match) => {
       const eventCard = document.createElement('div');
       eventCard.className = 'top-event-card';
+      eventCard.onclick = () => window.location.href = getBroadcastPage(match.sport);
+      eventCard.style.cursor = 'pointer';
 
       const scoreText = match.status === 'live' 
         ? `${match.score.home} - ${match.score.away}`
