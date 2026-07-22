@@ -129,7 +129,7 @@
         if (sportFeatured.status === 'live') {
           statusHtml = '<div class="sport-card-status is-live"><span class="dot"></span> Live · ' + sportFeatured.home + ' vs ' + sportFeatured.away + '</div>';
         } else if (sportFeatured.status === 'upcoming') {
-          statusHtml = '<div class="sport-card-status">Next: ' + sportFeatured.home + ' vs ' + sportFeatured.away + ' — ' + formatWhen(new Date(sportFeatured.kickoff)) + '</div>';
+          statusHtml = '<div class="sport-card-status">Next: ' + sportFeatured.home + ' vs ' + sportFeatured.away + '<br>' + formatWhen(new Date(sportFeatured.kickoff)) + '</div>';
         } else {
           statusHtml = '<div class="sport-card-status">Last: ' + sportFeatured.home + ' vs ' + sportFeatured.away + '</div>';
         }
