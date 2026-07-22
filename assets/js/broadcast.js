@@ -19,23 +19,10 @@
 
   var featured = Sched.getFeatured(sport.matches, sport.defaultDurationMinutes);
 
-  // ---- "Coming soon" / status note above the player ----
+  // ---- "Coming soon" / status note above the player (disabled) ----
   var noteEl = document.getElementById('coming-soon');
   if (noteEl) {
-    if (!featured) {
-      noteEl.innerHTML = '<p>📺 No matches scheduled right now.</p>';
-    } else if (featured.status === 'upcoming') {
-      var kickoff = new Date(featured.kickoff);
-      var when = kickoff.toLocaleString(undefined, {
-        weekday: 'long', month: 'short', day: 'numeric',
-        hour: '2-digit', minute: '2-digit'
-      });
-      noteEl.innerHTML = '<p>📺 Stream starts ' + when + ' <span style="color:var(--muted);">(your local time)</span></p><p>Come back when the stream has started.⚽</p>';
-    } else if (featured.status === 'finished') {
-      noteEl.innerHTML = '<p>This match has ended. Check the home page for the next kickoff.⚽</p>';
-    } else {
-      noteEl.style.display = 'none';
-    }
+    noteEl.style.display = 'none';
   }
 
   // ---- Fixture heading ----
