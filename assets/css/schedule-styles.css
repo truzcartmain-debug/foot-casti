@@ -1,0 +1,552 @@
+/* ==========================================================================
+   FOOT CASTI — SCHEDULE & LIVE EVENTS STYLES
+   ========================================================================== */
+
+/* ---------- Live Events Grid ---------- */
+.live-events {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px 20px;
+}
+
+.live-events-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 16px;
+}
+
+.live-events-head h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.live-events-head span {
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.live-events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.live-event-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--surface-2), var(--surface));
+  border: 2px solid rgba(34, 224, 122, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.live-event-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 100% 0%, rgba(34, 224, 122, 0.2), transparent 80%);
+  pointer-events: none;
+}
+
+.live-event-card.in-view {
+  animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.live-event-card:hover {
+  border-color: var(--green);
+  background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%);
+  box-shadow: 0 8px 32px rgba(34, 224, 122, 0.25);
+  transform: translateY(-4px);
+}
+
+.live-event-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.live-event-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: pulse-badge 1.5s ease-in-out infinite;
+}
+
+.live-event-tag .dot {
+  width: 6px;
+  height: 6px;
+}
+
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.live-event-sport {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.3px;
+}
+
+.live-event-images {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.team-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid var(--line);
+  transition: transform 0.3s ease;
+}
+
+.live-event-card:hover .team-image {
+  transform: scale(1.05);
+}
+
+.vs-text {
+  color: var(--green);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.live-event-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.team-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.score-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--green);
+  letter-spacing: 0.5px;
+}
+
+.live-event-meta {
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+  position: relative;
+  z-index: 1;
+}
+
+.live-event-cta {
+  margin-top: auto;
+  text-align: center;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.live-event-cta span {
+  transition: transform 0.3s ease;
+}
+
+.live-event-card:hover .live-event-cta span {
+  transform: translateX(4px);
+}
+
+.live-events-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- Top Events Section ---------- */
+.top-events {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 24px;
+}
+
+.top-events-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+#top-events-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.top-event-card {
+  background: linear-gradient(135deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.top-event-card:hover {
+  border-color: var(--green);
+  box-shadow: 0 8px 24px rgba(34, 224, 122, 0.2);
+  transform: translateY(-4px);
+}
+
+.top-event-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--surface);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.top-event-images {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.top-event-images img {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.top-event-score {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.top-event-info h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.top-event-info p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 4px 0;
+}
+
+.match-time-small {
+  color: var(--green) !important;
+  font-weight: 600;
+}
+
+/* ---------- Full Schedule ---------- */
+.schedule {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 24px 50px;
+}
+
+.schedule-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 16px;
+}
+
+.schedule-head h2 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.schedule-head span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+#schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.match-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, var(--surface-2), var(--surface));
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.match-row.in-view {
+  animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.match-row:hover {
+  border-color: var(--green);
+  box-shadow: 0 6px 20px rgba(34, 224, 122, 0.15);
+  transform: translateY(-2px);
+}
+
+.match-row.is-live {
+  border-color: rgba(34, 224, 122, 0.5);
+  background: linear-gradient(135deg, rgba(34, 224, 122, 0.1), rgba(34, 224, 122, 0.05));
+}
+
+.match-status {
+  min-width: 100px;
+  text-align: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.status-badge.live {
+  background: rgba(34, 224, 122, 0.2);
+  color: var(--green);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.status-badge.upcoming {
+  background: rgba(100, 150, 255, 0.2);
+  color: #6496ff;
+}
+
+.status-badge.finished {
+  background: rgba(150, 150, 150, 0.2);
+  color: var(--muted);
+}
+
+.match-teams {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.team-image-container {
+  display: flex;
+  gap: 8px;
+}
+
+.match-team-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+.match-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.match-sport {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.match-names {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.match-names .score {
+  color: var(--green);
+  font-weight: 700;
+  margin: 0 8px;
+}
+
+.match-league {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.match-time {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.match-action {
+  flex-shrink: 0;
+}
+
+.btn-sm.btn-watch {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, var(--green), var(--green-dim));
+  border: none;
+  border-radius: 6px;
+  color: #06120c;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-sm.btn-watch:hover {
+  box-shadow: 0 4px 12px rgba(34, 224, 122, 0.3);
+  transform: scale(1.05);
+}
+
+.schedule-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted);
+  font-size: 14px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .live-events-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .match-row {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .match-teams {
+    order: 2;
+    width: 100%;
+  }
+
+  .match-status {
+    order: 1;
+  }
+
+  .match-action {
+    order: 3;
+    margin-left: auto;
+  }
+
+  .live-events-head h2,
+  .schedule-head h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .live-events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .live-events,
+  .schedule {
+    padding: 20px 16px;
+  }
+
+  .live-event-images {
+    gap: 8px;
+  }
+
+  .team-image {
+    width: 50px;
+    height: 50px;
+  }
+}
