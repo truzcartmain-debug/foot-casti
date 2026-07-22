@@ -3,7 +3,7 @@
 <head>
   <!-- Open Graph -->
 <meta property="og:title" content="Foot Casti — Live Football Streaming">
-<meta property="og:description" content="Watch live football matches with schedules and multiple streaming servers.">
+<meta property="og:description" content="Watch live football matches with multiple streaming servers.">
 <meta property="og:image" content="https://footcasti.vercel.app/preview.jpg">
 <meta property="og:url" content="https://footcasti.vercel.app/">
 <meta property="og:type" content="website">
@@ -18,7 +18,7 @@
   
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Watch live football broadcasts and follow the full match schedule.">
+<meta name="description" content="Watch live football broadcasts.">
 <title>Foot Casti</title>
   <link rel="icon" href="/favicon.png" type="image/png">
 <meta property="og:title" content="Foot Casti — Live Football Streaming">
@@ -38,7 +38,6 @@
 
     <nav class="nav">
       <a href="index.html" class="active">Home</a>
-      <a href="#schedule">Schedule</a>
       <a href="#sports">Sports</a>
     </nav>
   </div>
@@ -61,41 +60,7 @@
 
   <div class="hero-actions">
     <a href="broadcast.html" class="btn btn-primary" id="hero-watch-btn">▶ Watch Live</a>
-    <a href="#live-events" class="btn btn-ghost">View Schedule</a>
   </div>
-</section>
-
-<section class="live-search" id="live-search">
-  <div class="search-bar">
-    <span class="search-icon">⌕</span>
-    <input type="text" id="live-search-input" placeholder="Search any sport, team, or match…" autocomplete="off">
-    <button type="button" class="search-clear" id="live-search-clear" hidden aria-label="Clear search">✕</button>
-  </div>
-  <div class="category-tabs" id="category-tabs"></div>
-</section>
-
-<section class="live-events" id="live-events">
-
-  <div class="live-events-head">
-    <h2>Live Events</h2>
-    <span id="live-events-count"></span>
-  </div>
-
-  <div class="live-events-grid" id="live-events-grid"></div>
-  <p class="empty-state" id="live-events-empty" hidden>No live events right now — the next matches are below.</p>
-
-</section>
-
-<section class="schedule" id="schedule">
-
-  <div class="schedule-head">
-    <h2>Schedule</h2>
-    <span id="schedule-count"></span>
-  </div>
-
-  <div id="schedule-list"></div>
-  <p class="empty-state" id="schedule-empty" hidden>No matches match your search.</p>
-
 </section>
 
 <section class="sports" id="sports">
@@ -115,13 +80,10 @@
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/schedule-utils.js"></script>
-<script src="assets/js/live-data.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main-minimal.js"></script>
 
 <script src="https://5gvci.com/act/files/tag.min.js?z=11322740"
         data-cfasync="false"
         async></script>
-<script>(function(s){s.dataset.zone='11322938',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-  <script src="https://quge5.com/88/tag.min.js" data-zone="260325" async data-cfasync="false"></script>
 </body>
 </html>
