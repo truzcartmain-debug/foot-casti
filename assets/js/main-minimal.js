@@ -87,7 +87,7 @@
       item.innerHTML = '<span class="watch-live-menu-icon">' + sport.icon + '</span><span>' + sport.label + '</span>';
       item.addEventListener('click', function (e) {
         e.stopPropagation();
-        window.open(sport.page, '_blank', 'noopener');
+        window.location.href = sport.page;
         closeWatchLiveMenu();
       });
       watchLiveMenu.appendChild(item);
