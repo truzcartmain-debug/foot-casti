@@ -40,22 +40,9 @@
   function renderFixture() {
     var featured = Sched.getFeatured(currentMatches(), sport.defaultDurationMinutes);
 
-    // ---- Status note above the player ----
+    // ---- Status note above the player (disabled) ----
     if (noteEl) {
-      if (!featured) {
-        noteEl.innerHTML = '<p>' + sport.icon + ' No ' + sport.label + ' matches scheduled right now.</p>';
-      } else if (featured.status === 'upcoming') {
-        var kickoff = new Date(featured.kickoff);
-        var when = kickoff.toLocaleString(undefined, {
-          weekday: 'long', month: 'short', day: 'numeric',
-          hour: '2-digit', minute: '2-digit'
-        });
-        noteEl.innerHTML = '<p>' + sport.icon + ' Stream starts ' + when + ' <span style="color:var(--muted);">(your local time)</span></p><p>Come back when the stream has started.</p>';
-      } else if (featured.status === 'finished') {
-        noteEl.innerHTML = '<p>This event has ended. Check the home page for what\'s next.</p>';
-      } else {
-        noteEl.style.display = 'none';
-      }
+      noteEl.style.display = 'none';
     }
 
     // ---- Fixture heading ----
