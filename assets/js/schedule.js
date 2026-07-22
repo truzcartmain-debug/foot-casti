@@ -12,14 +12,14 @@
 
   // ---- Utility Functions ----
   function getStatus(match) {
-    if (match.status === 'live') return 'LIVE';
-    if (match.status === 'finished') return 'FINISHED';
+    if (match.status === 'live') return '🔴 LIVE';
+    if (match.status === 'finished') return '✓ FINISHED';
     const kickoff = new Date(match.kickoff);
     const now = new Date();
     const hoursUntil = (kickoff - now) / (1000 * 60 * 60);
-    if (hoursUntil < 1) return 'STARTING SOON';
-    if (hoursUntil < 24) return Math.floor(hoursUntil) + 'H LEFT';
-    return 'UPCOMING';
+    if (hoursUntil < 1) return '⏰ STARTING SOON';
+    if (hoursUntil < 24) return '⏱ ' + Math.floor(hoursUntil) + 'H LEFT';
+    return '📅 UPCOMING';
   }
 
   function formatTime(dateString) {
@@ -36,12 +36,6 @@
     if (date.toDateString() === today.toDateString()) return 'Today';
     if (date.toDateString() === tomorrow.toDateString()) return 'Tomorrow';
     return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
-  }
-
-  function getTeamInitials(name) {
-    const words = name.trim().split(/\s+/);
-    if (words.length === 1) return words[0].substring(0, 3).toUpperCase();
-    return (words[0][0] + words[1][0]).toUpperCase();
   }
 
   // ---- Live Matches Grid ----
@@ -67,21 +61,21 @@
       const card = document.createElement('div');
       card.className = 'live-event-card in-view';
       card.style.animationDelay = (index * 0.06) + 's';
-      card.onclick = () => window.open(match.sportPage || '#', '_self');
+      card.style.cursor = 'pointer';
 
       const scoreText = match.status === 'live' 
         ? `${match.score.home} - ${match.score.away}`
-        : (match.status === 'finished' ? `${match.score.home} - ${match.score.away} (FT)` : 'vs');
+        : (match.status === 'finished' ? `${match.score.home} - ${match.score.away}` : 'vs');
 
       card.innerHTML = `
         <div class="live-event-top">
-          <span class="live-event-tag"><span class="dot"></span> ${getStatus(match)}</span>
+          <span class="live-event-tag"><span class="dot"></span> ${match.status === 'live' ? 'LIVE' : 'UPCOMING'}</span>
           <span class="live-event-sport">${match.sportIcon} ${match.sport}</span>
         </div>
         <div class="live-event-images">
-          <img src="${match.homeImage}" alt="${match.home}" class="team-image">
+          <img src="${match.homeImage}" alt="${match.home}" class="team-image" onerror="this.src='https://via.placeholder.com/100x100/888888/FFFFFF?text=?'">
           <span class="vs-text">VS</span>
-          <img src="${match.awayImage}" alt="${match.away}" class="team-image">
+          <img src="${match.awayImage}" alt="${match.away}" class="team-image" onerror="this.src='https://via.placeholder.com/100x100/888888/FFFFFF?text=?'">
         </div>
         <div class="live-event-names">
           <span class="team-name">${match.home}</span>
@@ -120,8 +114,6 @@
       row.className = 'match-row ' + (match.status === 'live' ? 'is-live' : '') + (match.status === 'finished' ? 'is-finished' : '') + ' in-view';
 
       const statusText = getStatus(match);
-      const homeInitials = getTeamInitials(match.home);
-      const awayInitials = getTeamInitials(match.away);
 
       const scoreText = match.status === 'live' 
         ? `${match.score.home} - ${match.score.away}`
@@ -133,8 +125,8 @@
         </div>
         <div class="match-teams">
           <div class="team-image-container">
-            <img src="${match.homeImage}" alt="${match.home}" class="match-team-image">
-            <img src="${match.awayImage}" alt="${match.away}" class="match-team-image">
+            <img src="${match.homeImage}" alt="${match.home}" class="match-team-image" onerror="this.src='https://via.placeholder.com/50x50/888888/FFFFFF?text=?'">
+            <img src="${match.awayImage}" alt="${match.away}" class="match-team-image" onerror="this.src='https://via.placeholder.com/50x50/888888/FFFFFF?text=?'">
           </div>
           <div class="match-info">
             <div class="match-sport">${match.sportIcon} ${match.sport}</div>
@@ -152,7 +144,6 @@
         </div>
       `;
 
-      row.querySelector('.btn-watch').onclick = () => window.open(match.sportPage || '#', '_self');
       scheduleList.appendChild(row);
     });
   }
@@ -166,6 +157,11 @@
 
     topEventsContainer.innerHTML = '';
 
+    if (topEvents.length === 0) {
+      topEventsContainer.innerHTML = '<p style="color: var(--muted); text-align: center; padding: 40px;">No upcoming events at the moment.</p>';
+      return;
+    }
+
     topEvents.forEach((match) => {
       const eventCard = document.createElement('div');
       eventCard.className = 'top-event-card';
@@ -177,9 +173,9 @@
       eventCard.innerHTML = `
         <div class="top-event-badge">${match.status === 'live' ? '🔴 LIVE' : '⏰ SOON'}</div>
         <div class="top-event-images">
-          <img src="${match.homeImage}" alt="${match.home}">
+          <img src="${match.homeImage}" alt="${match.home}" onerror="this.src='https://via.placeholder.com/70x70/888888/FFFFFF?text=?'">
           <div class="top-event-score">${scoreText}</div>
-          <img src="${match.awayImage}" alt="${match.away}">
+          <img src="${match.awayImage}" alt="${match.away}" onerror="this.src='https://via.placeholder.com/70x70/888888/FFFFFF?text=?'">
         </div>
         <div class="top-event-info">
           <h3>${match.home} vs ${match.away}</h3>
@@ -194,7 +190,9 @@
 
   // ---- Update All Data ----
   function updateAllData() {
+    console.log('Updating sports data...');
     API.fetchAllMatches().then(matches => {
+      console.log('Fetched matches:', matches.length);
       allMatches = matches.sort((a, b) => {
         if (a.status === 'live' && b.status !== 'live') return -1;
         if (a.status !== 'live' && b.status === 'live') return 1;
@@ -202,18 +200,22 @@
       });
 
       liveMatches = allMatches.filter(m => m.status === 'live');
+      console.log('Live matches:', liveMatches.length);
 
       renderLiveEvents();
       renderSchedule();
       renderTopEvents();
+    }).catch(err => {
+      console.error('Error fetching matches:', err);
     });
   }
 
   // ---- Initialize ----
   function init() {
+    console.log('Initializing Schedule Manager...');
     updateAllData();
     
-    // Update every 30 seconds for real-time feel
+    // Update every 30 seconds
     updateInterval = setInterval(updateAllData, 30000);
   }
 
@@ -226,7 +228,7 @@
     destroy: () => clearInterval(updateInterval)
   };
 
-  // Auto-init on DOM ready
+  // Auto-init
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
