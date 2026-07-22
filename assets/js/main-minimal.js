@@ -118,28 +118,15 @@
     sportsGrid.innerHTML = '';
     Object.keys(cfg.sports).forEach(function (key) {
       var sport = cfg.sports[key];
-      var sportFeatured = Sched.getFeatured(sport.matches || [], sport.defaultDurationMinutes);
 
       var card = document.createElement('a');
       card.className = 'sport-card in-view';
       card.href = sport.page;
 
-      var statusHtml = '';
-      if (sportFeatured) {
-        if (sportFeatured.status === 'live') {
-          statusHtml = '<div class="sport-card-status is-live"><span class="dot"></span> Live · ' + sportFeatured.home + ' vs ' + sportFeatured.away + '</div>';
-        } else if (sportFeatured.status === 'upcoming') {
-          statusHtml = '<div class="sport-card-status">Next: ' + sportFeatured.home + ' vs ' + sportFeatured.away + '<br>' + formatWhen(new Date(sportFeatured.kickoff)) + '</div>';
-        } else {
-          statusHtml = '<div class="sport-card-status">Last: ' + sportFeatured.home + ' vs ' + sportFeatured.away + '</div>';
-        }
-      }
-
       card.innerHTML =
         '<div class="sport-card-icon">' + sport.icon + '</div>' +
         '<div class="sport-card-body">' +
           '<div class="sport-card-name">' + sport.label + '</div>' +
-          statusHtml +
         '</div>' +
         '<div class="sport-card-cta">Watch <span>→</span></div>';
 
