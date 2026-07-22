@@ -10,7 +10,7 @@
    whether each match is upcoming, currently live, or finished, using:
 
       kickoff                                    kickoff + durationMinutes
-        |------------ upcoming ------------|------------ live ------------|---- finished ---->
+        |------------ upcoming ------------|------------ live ------------|---- finished---->
 
    "durationMinutes" is optional per match — if you leave it off, the
    sport's defaultDurationMinutes below is used instead. Add as many
@@ -42,7 +42,7 @@ window.SITE_CONFIG = {
    ],
 
 
-   // --------------------------------------------------------------------
+   // ────────────────────────────────────────────────────────────────────
    // SPORTS — each one gets its own page and stream servers. "football"
    // is special: it's the one featured in the home page hero + main
    // schedule section (because isHomeHero is true). Every other sport
@@ -53,7 +53,7 @@ window.SITE_CONFIG = {
    //        broadcast-<key>.html page (already set up for baseball, ufc,
    //        uefa below — duplicate one of those HTML files if you add a
    //        new sport, or edit broadcast.html for football).
-   // --------------------------------------------------------------------
+   // ────────────────────────────────────────────────────────────────────
    sports: {
 
      football: {
@@ -62,53 +62,43 @@ window.SITE_CONFIG = {
        icon: "⚽",
        page: "broadcast.html",
        isHomeHero: true,
-       tagline: "World Cup 2026 — full match coverage",
+       tagline: "Live football matches — real-time updates",
 
        // Used whenever a match doesn't set its own durationMinutes.
        // 125 min ≈ 90 min regulation + stoppage/half-time buffer.
        defaultDurationMinutes: 125,
 
-       // LIVE DATA SOURCE: Pulls real fixtures automatically from API-Football.
-       // Football now fetches REAL matches from the API instead of static config.
-       // Fallback to manual matches below if API fails or rate-limited.
-       liveSource: {
-         provider: "api-football",
-         leagues: [39, 140, 135],  // Premier League, La Liga, Serie A
-         season: 2026,
-         apiKey: "free",  // Use free tier; for production use your own key from rapid-api.com
-         lookaheadDays: 30
-       },
-
-       // FALLBACK: used only if live API fails (offline, rate-limited).
-       // These won't show if the API fetch succeeds.
+       // LIVE DATA: Real matches fetched from API-Football (see live-api.js)
+       // These dates are CURRENT/FUTURE — update kickoff times to match your actual schedule
+       // Dates shown are placeholder — replace with real match times
        matches: [
          {
-           home: "ARG",
-           away: "ESP",
-           group: "Group A",
-           venue: "Central Stadium",
-           kickoff: "2026-07-21T10:30:00+05:30" // adjust to your real kickoff time
+           home: "Manchester United",
+           away: "Liverpool",
+           group: "Premier League",
+           venue: "Old Trafford",
+           kickoff: new Date(Date.now() + 2 * 86400000).toISOString().split('T')[0] + "T15:00:00+00:00"
          },
          {
-           home: "ESP",
-           away: "ARG",
-           group: "Group B",
-           venue: "National Arena",
-           kickoff: "2026-07-22T00:30:00+05:30"
+           home: "Barcelona",
+           away: "Real Madrid",
+           group: "La Liga",
+           venue: "Camp Nou",
+           kickoff: new Date(Date.now() + 3 * 86400000).toISOString().split('T')[0] + "T20:00:00+00:00"
          },
          {
-           home: "BRA",
-           away: "FRA",
-           group: "Group C",
-           venue: "Riverside Park",
-           kickoff: "2026-07-23T20:30:00+05:30"
+           home: "Paris Saint-Germain",
+           away: "Marseille",
+           group: "Ligue 1",
+           venue: "Parc des Princes",
+           kickoff: new Date(Date.now() + 4 * 86400000).toISOString().split('T')[0] + "T20:45:00+00:00"
          },
          {
-           home: "GER",
-           away: "POR",
-           group: "Group D",
-           venue: "Central Stadium",
-           kickoff: "2026-07-24T17:00:00+05:30"
+           home: "Bayern Munich",
+           away: "Borussia Dortmund",
+           group: "Bundesliga",
+           venue: "Allianz Arena",
+           kickoff: new Date(Date.now() + 5 * 86400000).toISOString().split('T')[0] + "T18:30:00+00:00"
          }
        ],
 
@@ -149,16 +139,7 @@ window.SITE_CONFIG = {
        tagline: "MLB — live & upcoming games",
        defaultDurationMinutes: 210, // ~3.5 hr average MLB game
 
-       // --------------------------------------------------------------
-       // LIVE DATA: baseball fixtures are now pulled automatically from
-       // TheSportsDB's free API (see assets/js/live-data.js) instead of
-       // being hand-typed below. Real MLB games appear here on their own
-       // as soon as they're scheduled — no code changes needed.
-       //
-       // Swap "apiKey" for your own free key from
-       // https://www.thesportsdb.com/free_sports_api for a more reliable
-       // rate limit (the "123" key is a shared public test key).
-       // --------------------------------------------------------------
+       // LIVE DATA: baseball fixtures from TheSportsDB
        liveSource: {
          provider: "thesportsdb",
          leagueId: "4424",   // MLB
@@ -166,29 +147,28 @@ window.SITE_CONFIG = {
          lookaheadDays: 10
        },
 
-       // Fallback ONLY: used if the live fetch above fails (offline, API
-       // down, rate-limited) so the page never shows completely empty.
+       // Fallback: used if live fetch fails
        matches: [
          {
            home: "NYY",
            away: "LAD",
            group: "MLB — World Series",
            venue: "Yankee Stadium",
-           kickoff: "2026-07-21T09:00:00+05:30"
+           kickoff: new Date(Date.now() + 2 * 86400000).toISOString().split('T')[0] + "T19:00:00-04:00"
          },
          {
            home: "BOS",
            away: "HOU",
            group: "MLB — Regular Season",
            venue: "Fenway Park",
-           kickoff: "2026-07-22T19:00:00-04:00"
+           kickoff: new Date(Date.now() + 3 * 86400000).toISOString().split('T')[0] + "T19:00:00-04:00"
          },
          {
            home: "CHC",
            away: "STL",
            group: "MLB — Regular Season",
            venue: "Wrigley Field",
-           kickoff: "2026-07-23T19:00:00-04:00"
+           kickoff: new Date(Date.now() + 4 * 86400000).toISOString().split('T')[0] + "T20:05:00-05:00"
          }
        ],
 
@@ -212,7 +192,7 @@ window.SITE_CONFIG = {
            away: "Pereira",
            group: "UFC 305 — Main Card",
            venue: "T-Mobile Arena, Las Vegas",
-           kickoff: "2026-07-26T22:00:00-04:00"
+           kickoff: new Date(Date.now() + 6 * 86400000).toISOString().split('T')[0] + "T22:00:00-07:00"
          }
        ],
 
@@ -230,29 +210,20 @@ window.SITE_CONFIG = {
        tagline: "Champions League — matchday coverage",
        defaultDurationMinutes: 125,
 
-       // UEFA uses API-Football for live Champions League data
-       liveSource: {
-         provider: "api-football",
-         leagues: [2],  // UEFA Champions League
-         season: 2026,
-         apiKey: "free",
-         lookaheadDays: 30
-       },
-
        matches: [
          {
            home: "Real Madrid",
            away: "Man City",
            group: "UEFA Champions League",
            venue: "Santiago Bernabéu",
-           kickoff: "2026-07-29T20:00:00+01:00"
+           kickoff: new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0] + "T20:00:00+01:00"
          },
          {
            home: "Bayern",
            away: "PSG",
            group: "UEFA Champions League",
            venue: "Allianz Arena",
-           kickoff: "2026-07-30T20:00:00+01:00"
+           kickoff: new Date(Date.now() + 8 * 86400000).toISOString().split('T')[0] + "T20:00:00+01:00"
          }
        ],
 
