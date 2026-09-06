@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="footcasti" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22c55e"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="11" fill="url(#footcasti)"/>
+  <circle cx="24" cy="24" r="11" fill="none" stroke="#04140a" stroke-width="3.5"/>
+  <path d="M21 18.5 30 24l-9 5.5z" fill="#04140a"/>
+</svg>
